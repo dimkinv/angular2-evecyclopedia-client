@@ -11,9 +11,6 @@ export class InfoCapsuleComponent implements OnInit{
 
     @Input()
     title:string;
-    
-    @Input()
-    value:string;
 
     @Input()
     availableValues?:string[];
@@ -24,8 +21,11 @@ export class InfoCapsuleComponent implements OnInit{
     @Input()
     units?:string;
 
+    @Input()
+    value:string;
+
     @Output()
-    change:EventEmitter<any> = new EventEmitter();
+    valueChange:EventEmitter<any> = new EventEmitter();
 
     ngOnInit(){
         this.icon = this.icon || './assets/no-icon.jpg';
@@ -33,6 +33,6 @@ export class InfoCapsuleComponent implements OnInit{
 
     onValueChange(newValue){
         console.log('changed!', newValue);
-        this.change.emit(newValue)
+        this.valueChange.emit(newValue)
     }
 }
