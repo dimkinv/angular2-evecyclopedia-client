@@ -1,14 +1,11 @@
 <div class="ship-card">
-  <button *ngIf="!editMode" (click)="edit()" class="edit">EDIT</button>
-  <button *ngIf="editMode" (click)="save()" class="save">SAVE</button>
-  <button *ngIf="editMode" (click)="cancel()" class="cancel">CANCEL</button>
   <div class="content">
     <div class="bottom">
       <div class="title">
         <h2>{{ship.name}}</h2>
       </div>
       <div class="description">
-        {{ship.description | ellipsis:400 }}
+        {{ship.description}}
       </div>
     </div>
     <div class="physics">
