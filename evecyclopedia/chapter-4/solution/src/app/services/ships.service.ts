@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ApiService} from '../../../services/api.service';
+import {ApiService} from './api.service';
 
 @Injectable()
 export class ShipService{
@@ -10,5 +10,11 @@ export class ShipService{
     }
     getSpaceship(spaceshipId){
         return this.apiService.get(spaceshipId)
+    }
+    getGroups(){
+         return this.apiService.get('/groups')
+    }
+    getGroupRaces(groupName){
+        return this.apiService.get(`/groups/${groupName}/races`)
     }
 }

@@ -2,11 +2,26 @@
   width: 300px;
   height: 100vh;
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 25%, rgba(0, 0, 0, 1) 100%);
+  overflow: hidden;
 
   .title{
     padding: 20px;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 20px;
+  }
+  .subtitle{
+    font-size: 16px;
+    color: #FFCF3A;
+    border-bottom: 1px solid #FFCF3A;
+  }
+  .groups{
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  li{
+    cursor: pointer;
+    margin-left: 20px;
   }
 }

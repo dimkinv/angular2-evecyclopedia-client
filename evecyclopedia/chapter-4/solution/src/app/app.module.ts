@@ -5,8 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {ShipDetailsComponent, InfoCapsuleComponent, LeftMenuComponent} from './ui';
 import {EllipsisPipe} from './pipes';
-import {ApiService} from './services';
-import {ShipService } from './ui/ship-details/ship-service/ship.service';
+import {ApiService, ShipService} from './services';
 
 @NgModule({
   declarations: [

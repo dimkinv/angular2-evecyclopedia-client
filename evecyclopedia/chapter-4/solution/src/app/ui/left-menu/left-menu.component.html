@@ -1,14 +1,13 @@
 <div class="left-menu">
   <div class="title">{{title}}</div>
-  <ul>
-    <li>
-      <a routerLink="/shipId1" routerLinkActive="active">Ship A</a>
-    </li>
-    <li>
-       <a routerLink="/shipId2" routerLinkActive="active">Ship B</a>
-    </li>
-    <li>
-      <a routerLink="/shipId3" routerLinkActive="active">Ship C</a>
+  <ul class="groups">
+    <span class="subtitle">Groups</span>
+    <li *ngFor="let group of groups" (click)="fetchRaces(group.name)">
+      <h5>{{group.name}}</h5>
+      <ul class="races" [hidden]="selectedGroup!==group.name">
+        <span class="subtitle">Races</span>
+        <li *ngFor="let race of races[group.name]">{{race.name}}</li>
+      </ul>
     </li>
   </ul>
 </div>
