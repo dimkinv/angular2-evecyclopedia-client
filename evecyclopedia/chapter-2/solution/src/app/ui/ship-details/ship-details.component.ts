@@ -10,4 +10,14 @@ export class ShipDetailsComponent{
     this.ship = window['httpMock'].getRandomShip();
   }
   private ship;
+  private editMode:boolean=false;
+  edit(){
+    this.editMode = true;
+  }
+  save(){
+    this.editMode = false;
+  }
+  cancel(){
+    this.editMode = false;
+  }
 }

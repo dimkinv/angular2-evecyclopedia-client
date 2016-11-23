@@ -1,21 +1,24 @@
 <div class="ship-card">
+  <button *ngIf="!editMode" (click)="edit()" class="edit">EDIT</button>
+  <button *ngIf="editMode" (click)="save()" class="save">SAVE</button>
+  <button *ngIf="editMode" (click)="cancel()" class="cancel">CANCEL</button>
   <div class="content">
     <div class="bottom">
       <div class="title">
         <h2>{{ship.name}}</h2>
       </div>
       <div class="description">
-        {{ship.description}}
+        {{ship.description | ellipsis:400 }}
       </div>
     </div>
     <div class="physics">
-      <info-capsule title="race" value="{{ship.race}}"></info-capsule>
+      <info-capsule icon="./assets/races/{{ship.race|lowercase}}.png" title="race" value="{{ship.race}}"></info-capsule>
       <info-capsule title="group" value="{{ship.group}}"></info-capsule>
-      <info-capsule title="volume" value="{{ship.volume}} m³"></info-capsule>
-      <info-capsule title="capacity" value="{{ship.capacity}} m³"></info-capsule>
-      <info-capsule title="mass" value="{{ship.mass}} kg"></info-capsule>
-      <info-capsule title="version" value="{{ship.meta_group_name}}"></info-capsule>
+      <info-capsule icon="./assets/phisics/volume.jpg" title="volume" value="{{ship.volume}} m³"></info-capsule>
+      <info-capsule icon="./assets/phisics/capacity.jpg" title="capacity" value="{{ship.capacity}} m³"></info-capsule>
+      <info-capsule icon="./assets/phisics/mass.jpg" title="mass" value="{{ship.mass}} kg"></info-capsule>
+      <info-capsule icon="./assets/phisics/version.jpg" title="version" value="{{ship.meta_group_name}}"></info-capsule>
     </div>
   </div>
-  <img src="./assets/ship1.jpg" class="image" alt="blaaa" width="512px" height="512px"/>
+  <img src="./assets/ships/ship1.jpg" class="image" alt="spaceship image" width="512px" height="512px"/>
 </div>
