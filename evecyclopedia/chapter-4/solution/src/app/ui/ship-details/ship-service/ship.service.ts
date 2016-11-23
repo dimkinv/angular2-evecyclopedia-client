@@ -9,6 +9,6 @@ export class ShipService{
         return this.apiService.get('/spaceships')
     }
     getSpaceship(spaceshipId){
-        return this.apiService.get(`/spaceships/${spaceshipId}`)
+        return this.apiService.get(spaceshipId)
     }
 }

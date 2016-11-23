@@ -18,7 +18,7 @@ export class ShipDetailsComponent implements OnInit{
   constructor(private shipService:ShipService){}
 
   ngOnInit(){
-    this.shipService.getSpaceship(this.spaceshipId)
+    this.shipService.getSpaceship('/groups/Battleship/races/Amarr/ships/Bhaalgorn')
       .catch(err => {
         console.log('Oh no! something went wrong...');
         return err;

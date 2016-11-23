@@ -11,11 +11,9 @@ export class ApiService{
         'Accept': 'application/json'
     });
 
-    api_url = 'http://localhost:3500';
+    api_url = 'http://localhost:3000/api';
 
-    constructor(private http: Http){
-
-    }
+    constructor(private http: Http){}
 
     get(path:string):Observable<any>{
         return this.http.get(this.api_url+path, {headers: this.headers})
