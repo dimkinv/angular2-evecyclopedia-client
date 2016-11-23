@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 
 @Component({
     selector: 'info-capsule',
@@ -7,16 +7,32 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class InfoCapsuleComponent implements OnInit{
     @Input()
-    private icon?:string;
+    icon?:string;
 
     @Input()
-    private title:string;
+    title:string;
     
     @Input()
-    private value:string;
+    value:string;
+
+    @Input()
+    availableValues?:string[];
+
+    @Input()
+    disabled:boolean;
+
+    @Input()
+    units?:string;
+
+    @Output()
+    change:EventEmitter<any> = new EventEmitter();
 
     ngOnInit(){
         this.icon = this.icon || './assets/no-icon.jpg';
     }
 
+    onValueChange(newValue){
+        console.log('changed!', newValue);
+        this.change.emit(newValue)
+    }
 }

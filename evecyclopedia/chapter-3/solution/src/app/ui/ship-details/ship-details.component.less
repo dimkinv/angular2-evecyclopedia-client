@@ -46,13 +46,42 @@
     transition: all .2s ease-in-out;
 
     .title{
+      font-size: 24px;
       padding: 6px;
+      background: none;
+      font-family: inherit;
+      border: none;
+      color: #202020;
+      background: rgba(250,250,250,0.8);
+      transition: all .2s ease-in-out;
     }
+    .title[disabled]{
+      color: #e3e3e3;
+      background: none;
+    }
+
+
     .description{
+      border: none;
+      overflow-y: auto;
+      box-sizing: border-box;
+      background: none;
+      resize: none;
+      width: 960px;
+      font-size: inherit;
+      font-family: inherit;
+      color: #202020;
+      background: rgba(250,250,250,0.8);
       transition: all .2s ease-in-out;
       padding: 6px;
       height: 100px;
       overflow-y: hidden;
+    }
+
+    .description[disabled]{
+      overflow-y: hidden;
+      color: #e3e3e3;
+      background: none;
     }
 
     /*&:hover {
