@@ -1,4 +1,7 @@
 <div class="ship-card">
+  <button class="edit" *ngIf="!isEditMode" (click)="edit()">EDIT</button>
+  <button class="save" *ngIf="isEditMode" (click)="save()">SAVE</button>
+  <button class="cancel" *ngIf="isEditMode" (click)="cancel()">CANCEL</button>
   <div class="content">
     <div class="bottom">
       <div class="title">
