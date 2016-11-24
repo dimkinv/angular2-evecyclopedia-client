@@ -6,29 +6,15 @@ import {ShipService} from '../../services';
   styleUrls: ['ship-details.component.less'],
   templateUrl: 'ship-details.component.html'
 })
-export class ShipDetailsComponent implements OnInit{
-  ship;
+export class ShipDetailsComponent{
   tempShip;
   isEditMode:boolean=false;
   racesList:string[] = ['Amarr', 'Caldari', 'Gallente', 'Jove', 'Minmatar', 'Ore'];
-  
-  @Input()
-  spaceshipId:string;
+
+  @Input('shipData')
+  ship:any;
 
   constructor(private shipService:ShipService){}
-
-  ngOnInit(){
-    this.shipService.getSpaceship('/groups/Battleship/races/Amarr/ships/Bhaalgorn')
-      .catch(err => {
-        console.log('Oh no! something went wrong...');
-        return err;
-      })
-      .subscribe(ship => {
-        this.ship = ship;
-      })
-    //this.ship = window['httpMock'].getRandomShip();
-  }
-
 
   save(){
     console.log('saving... ', this.ship);

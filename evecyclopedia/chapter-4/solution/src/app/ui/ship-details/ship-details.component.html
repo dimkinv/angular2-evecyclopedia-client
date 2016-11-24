@@ -18,6 +18,6 @@
   </div>
   <img src="./assets/ships/ship1.jpg" class="image" alt="spaceship image" width="512px" height="512px"/>
 </div>
-<div *ngIf="!ship" class="ship-card">
-  <h2>Something went wrong while fetching spaceship data... :(</h2>
+<div *ngIf="ship==='loading'" class="ship-card">
+  <h2>Loading spaceship data...</h2>
 </div>

@@ -1,4 +1,4 @@
 <div class="container">
-  <left-menu></left-menu>
-  <ship-details spaceshipId="ID"></ship-details>
+  <left-menu (shipChange)="shipData = $event"></left-menu>
+  <ship-details [shipData]="shipData"></ship-details>
 </div>

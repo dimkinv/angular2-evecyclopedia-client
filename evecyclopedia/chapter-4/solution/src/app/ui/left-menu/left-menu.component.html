@@ -2,11 +2,19 @@
   <div class="title">{{title}}</div>
   <ul class="groups">
     <span class="subtitle">Groups</span>
-    <li *ngFor="let group of groups" (click)="fetchRaces(group.name)">
-      <h5>{{group.name}}</h5>
+    <li *ngFor="let group of groups">
+      <span class="item" [ngClass]="{'selected': group.name === selectedGroup}" (click)="fetchRaces(group.name)">{{group.name}}</span>
       <ul class="races" [hidden]="selectedGroup!==group.name">
         <span class="subtitle">Races</span>
-        <li *ngFor="let race of races[group.name]">{{race.name}}</li>
+        <li *ngFor="let race of races">
+          <span class="item" [ngClass]="{'selected': race.name === selectedRace}" (click)="fetchShips(group.name, race.name)">{{race.name}}</span>
+          <ul class="ships" [hidden]="selectedRace!==race.name || !ships.length">
+            <span class="subtitle">Ships</span>
+            <li *ngFor="let ship of ships">
+              <span class="item" [ngClass]="{'selected': ship.name === selectedShip}" (click)="selectShip(group.name, race.name, ship.name)">{{ship.name}}</span>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
