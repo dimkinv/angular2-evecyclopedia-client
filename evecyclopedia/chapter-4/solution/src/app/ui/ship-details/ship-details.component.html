@@ -16,7 +16,7 @@
       <info-capsule [disabled]="true"  icon="./assets/phisics/version.jpg" title="version" value="{{ship.meta_group_name}}"></info-capsule>
     </div>
   </div>
-  <img src="http://localhost:3000/api/ships/{{ship.name}}/image" class="image" alt="spaceship image" width="512px" height="512px"/>
+  <img *ngIf="ship.name" src="http://localhost:3000/api/ships/{{ship.name}}/image" class="image" alt="spaceship image" width="512px" height="512px"/>
 </div>
 <div *ngIf="ship==='loading'" class="ship-card">
   <h2>Loading spaceship data...</h2>
