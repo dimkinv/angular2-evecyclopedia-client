@@ -2,6 +2,7 @@
   <div class="title">{{title}}</div>
   <ul class="groups">
     <span class="subtitle">Groups</span>
+    <button class="add" [ngClass]="{'selected': selectedShip === 'new'}" (click)="createNewSpaceship()">+Add Spaceship</button>
     <li *ngFor="let group of groups">
       <span class="item" [ngClass]="{'selected': group.name === selectedGroup}" (click)="fetchRaces(group.name)">{{group.name}}</span>
       <ul class="races" [hidden]="selectedGroup!==group.name">

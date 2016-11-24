@@ -17,4 +17,16 @@ export class ShipService{
     getShipDetails(groupName, race, shipName){
       return this.apiService.get(`/groups/${groupName}/races/${race}/ships/${shipName}`)
     }
+    getNewShipModel(){
+      return{
+        name: 'NEW',
+        description: '',
+        group: '',
+        race: '',
+        mass: '',
+        volume: '',
+        capacity: '',
+        meta_group_name: ''
+      }
+    }
 }

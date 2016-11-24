@@ -8,7 +8,7 @@
       <textarea class="description" [disabled]="!isEditMode" [(ngModel)]="ship.description"></textarea>
     </div>
     <div class="physics">
-      <info-capsule [disabled]="!isEditMode" icon="./assets/races/{{ship.race|lowercase}}.png" title="race" [(value)]="ship.race" [availableValues]="racesList"></info-capsule>
+      <info-capsule [disabled]="true" icon="./assets/races/{{ship.race|lowercase}}.png" title="race" [(value)]="ship.race" [availableValues]="racesList"></info-capsule>
       <info-capsule [disabled]="true" title="group" value="{{ship.group}}"></info-capsule>
       <info-capsule [disabled]="!isEditMode" icon="./assets/phisics/volume.jpg" title="volume" [(value)]="ship.volume" units="m³"></info-capsule>
       <info-capsule [disabled]="!isEditMode" units="m³" icon="./assets/phisics/capacity.jpg" title="capacity" [(value)]="ship.capacity"></info-capsule>

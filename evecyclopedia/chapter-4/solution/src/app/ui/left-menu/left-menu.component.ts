@@ -52,7 +52,12 @@ export class LeftMenuComponent implements OnInit{
     this.shipService.getShipDetails(groupName, raceName, shipName).subscribe(shipData => {
       this.shipChange.emit(shipData);
     })
-  };
+  }
+  createNewSpaceship(){
+    this._resetSelected();
+    this.selectedShip = 'new';
+    this.shipChange.emit(this.shipService.getNewShipModel());
+  }
   _resetSelected(){
     this.selectedGroup = null;
     this.selectedRace = null;
