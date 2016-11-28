@@ -11,7 +11,7 @@ export class ApiService{
         'Accept': 'application/json'
     });
 
-    api_url = 'http://localhost:3000/api';
+    api_url = 'https://evecyclopedia.herokuapp.com/api';
 
     constructor(private http: Http){}
 
