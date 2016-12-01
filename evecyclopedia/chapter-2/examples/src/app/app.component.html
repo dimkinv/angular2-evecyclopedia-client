@@ -1,11 +1,28 @@
 <div style="font-size: 25px;">
+  <h1>Simple text binding</h1>
+  <div>this is a double curly brackets binding: {{brackets}}</div>
+  <!--<div [innerHTML]="brackets"></div>-->
+  <!--<div innerHTML="{{brackets}}"></div>-->
+  <!--<div bind-innerHTML="{{brackets}}"></div>-->
   <div>
-    this is a double curly brackets binding: {{brackets}}
-  </div>
-  <div>
+    <h1>Events binding</h1>
     <button (click)="functionBinding()">click me!</button>
+    <!--<button on-click="functionBinding()">click me!</button>-->
   </div>
   <div>
-    <input type="text" [(ngModel)]="twoWayBinding"/>
-  </div>pwd
+    <h1>2 Way data binding</h1>
+    <div>Two Way Binding Value: {{twoWayBinding}}</div>
+    <!--<input type="text" [ngModel]="twoWayBinding" (ngModelChange)="twoWayBinding = $event" />-->
+    <input type="text" [(ngModel)]="twoWayBinding" />
+  </div>
+  <div>
+    <h1>Element instance reference</h1>
+    Update On Blur
+    <input [value]="twoWayBinding" #inputRef (blur)="twoWayBinding=inputRef.value" />
+  </div>
+  <div>
+    <h1>Directives</h1>
+    <p hightlight-on-hover>Hover Here!!!</p>
+  </div>
+
 </div>

@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {HighlightOnHoverDirective} from './directives/highlight-on-hover.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HighlightOnHoverDirective
   ],
   imports: [
     BrowserModule,
