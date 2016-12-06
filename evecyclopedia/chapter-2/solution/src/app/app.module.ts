@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import {ShipDetailsComponent, InfoCapsuleComponent, LeftMenuComponent} from './ui';
+import {ShipDetailsComponent} from './ui/ship-details/ship-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShipDetailsComponent,
-    InfoCapsuleComponent,
-    LeftMenuComponent
   ],
   imports: [
     BrowserModule,
