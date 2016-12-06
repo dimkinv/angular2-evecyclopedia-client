@@ -1,9 +1,8 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({ name: 'ellipsis' })
+@Pipe({name: 'ellipsis'})
 export class EllipsisPipe implements PipeTransform {
   transform(text: string, numOfLetters: number): string {
-    console.log('called!');//log change detection
     if (!text) {
       return text;
     }

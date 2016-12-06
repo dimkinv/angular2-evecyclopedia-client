@@ -2,5 +2,6 @@
   <img height="36px" width="36px"
        [src]="'https://evecyclopedia.herokuapp.com/assets/' + attribute.icon_path"
        [attr.alt]="attribute.description"/>
+  <span class="title">{{attribute.description | ellipsis:20}}</span>
   <span class="text" title="{{attribute.description}}">{{attribute.value}}</span>
 </div>
