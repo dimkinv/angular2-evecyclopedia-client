@@ -1,0 +1,21 @@
+<div style="border:2px solid black">
+  <p>original number: {{number}}</p>
+  <p>number with squareRoot pipe: {{number | squareRoot}}</p>
+</div>
+<div style="border:2px solid black">
+  <p>original number: {{number}}</p>
+  <p><input type="text" [(ngModel)]="nthR"/></p>
+  <p>number with nthRoot pipe: {{number | nthRoot:nthR}}</p>
+</div>
+
+<div style="border:2px solid black">
+  <p>original numbers: <span *ngFor="let num of numbers">{{num}}</span></p>
+  <p>set reminder: <input type="text" [(ngModel)]="rem"/></p>
+  <p>numbers with reminder filter: <span *ngFor="let num of numbers | reminder: rem">{{num}}</span></p>
+  <p>add number to collection<input type="text" [(ngModel)]="newNumber"/>
+    <button (click)="numbers.push(newNumber)">add number</button>
+  </p>
+  <p>add number to new collection<input type="text" [(ngModel)]="newNumber"/>
+    <button (click)="numbers = numbers.concat(newNumber)">add number and recreate list</button>
+  </p>
+</div>
