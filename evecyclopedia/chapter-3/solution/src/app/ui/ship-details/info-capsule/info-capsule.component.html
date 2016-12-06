@@ -1,11 +1,6 @@
 <div class="info-capsule">
-    <img height="36px" width="36px" src="{{icon}}" alt=""/>
-    <span class="title">{{title}}</span>
-    <input *ngIf="!availableValues" [ngClass]="{'text-align-right': units}" class="text" [value]="value" #info (change)="onValueChange(info.value)" [disabled]="disabled" />
-    <select *ngIf="availableValues" class="text"
-            #info [value]="value" (change)="onValueChange(info.value)" 
-            [disabled]="disabled">
-            <option attr.value="{{option}}" *ngFor="let option of availableValues;">{{option}}</option>
-    </select>
-    <span *ngIf="units">{{units}}</span>
+  <img height="36px" width="36px"
+       [src]="'https://evecyclopedia.herokuapp.com/assets/' + attribute.icon_path"
+       [attr.alt]="attribute.description"/>
+  <span class="text" title="{{attribute.description}}">{{attribute.value}}</span>
 </div>

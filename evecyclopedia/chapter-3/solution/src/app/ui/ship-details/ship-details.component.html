@@ -1,20 +1,37 @@
-<div class="ship-card">
-  <button class="edit" *ngIf="!isEditMode" (click)="edit()">EDIT</button>
-  <button class="save" *ngIf="isEditMode" (click)="save()">SAVE</button>
-  <button class="cancel" *ngIf="isEditMode" (click)="cancel()">CANCEL</button>
+<div class="ship-card" style="background-image: url('./assets/ships/ship1.jpg')">
   <div class="content">
     <div class="bottom">
-      <input class="title" [disabled]="!isEditMode" [(ngModel)]="ship.name"/>
-      <textarea class="description" [disabled]="!isEditMode" [(ngModel)]="ship.description"></textarea>
+      <div class="title">
+        <h2>{{ship.name}}</h2>
+      </div>
+      <div class="description">
+        {{ship.description}}
+      </div>
     </div>
     <div class="physics">
-      <info-capsule [disabled]="!isEditMode" icon="./assets/races/{{ship.race|lowercase}}.png" title="race" [(value)]="ship.race" [availableValues]="racesList"></info-capsule>
-      <info-capsule [disabled]="true" title="group" value="{{ship.group}}"></info-capsule>
-      <info-capsule [disabled]="!isEditMode" icon="./assets/phisics/volume.jpg" title="volume" [(value)]="ship.volume" units="m³"></info-capsule>
-      <info-capsule [disabled]="!isEditMode" units="m³" icon="./assets/phisics/capacity.jpg" title="capacity" [(value)]="ship.capacity"></info-capsule>
-      <info-capsule [disabled]="!isEditMode" units="kg" icon="./assets/phisics/mass.jpg" title="mass" [(value)]="ship.mass"></info-capsule>
-      <info-capsule [disabled]="true"  icon="./assets/phisics/version.jpg" title="version" value="{{ship.meta_group_name}}"></info-capsule>
+      <div class="info-capsule">
+        <span class="title">Volume</span>
+        <span class="text">{{ship.volume}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Capacity</span>
+        <span class="text">{{ship.capacity}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Mass</span>
+        <span class="text">{{ship.mass}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Race</span>
+        <span class="text">{{ship.race}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Group</span>
+        <span class="text">{{ship.group}}</span>
+      </div>
     </div>
+    <h2>Attributes</h2>
+    <info-capsule *ngFor="let attribute of ship.attributes" [attribute]="attribute"></info-capsule>
   </div>
-  <img src="./assets/ships/ship1.jpg" class="image" alt="spaceship image" width="512px" height="512px"/>
+
 </div>
