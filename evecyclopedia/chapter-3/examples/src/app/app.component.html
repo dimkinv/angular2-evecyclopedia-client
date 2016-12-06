@@ -1,3 +1,16 @@
+<section>
+  <h1>Component lifecycle hooks</h1>
+  <input type="checkbox" [(ngModel)]="displayLifecycleComponent"/>Toggle component
+  <lifecycle-component *ngIf="displayLifecycleComponent"></lifecycle-component>
+</section>
+<hr>
+<section>
+  <h1>Component's interactions</h1>
+  <parent-component></parent-component>
+</section>
+<hr>
+<section>
+<h1>Pipes</h1>
 <div style="border:2px solid black">
   <p>original number: {{number}}</p>
   <p>number with squareRoot pipe: {{number | squareRoot}}</p>
@@ -19,3 +32,4 @@
     <button (click)="numbers = numbers.concat(newNumber)">add number and recreate list</button>
   </p>
 </div>
+</section>

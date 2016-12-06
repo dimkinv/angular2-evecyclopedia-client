@@ -7,13 +7,19 @@ import {AppComponent} from './app.component';
 import {SquareRootPipe} from './square-root-pipe/square-root.pipe';
 import {NthRootPipe} from './nth-root-pipe/nth-root.pipe';
 import {ReminderPipe} from './reminder-pipe/reminder.pipe';
+import {ParentComponent} from './parent-component/parent.component';
+import {ChildComponent} from './child-component/child.component';
+import {LifecyclesComponent} from './lifecycles/lifecycles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareRootPipe,
     NthRootPipe,
-    ReminderPipe
+    ReminderPipe,
+    ParentComponent,
+    ChildComponent,
+    LifecyclesComponent
   ],
   imports: [
     BrowserModule,

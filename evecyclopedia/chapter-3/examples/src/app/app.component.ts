@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  displayLifecycleComponent:boolean=false;
   title = 'app works!';
   number:number = 100;
   nthR:number = 2;
