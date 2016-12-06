@@ -1,28 +1,54 @@
 <div style="font-size: 25px;">
-  <h1>Simple text binding</h1>
-  <div>this is a double curly brackets binding: {{brackets}}</div>
-  <!--<div [innerHTML]="brackets"></div>-->
-  <!--<div innerHTML="{{brackets}}"></div>-->
-  <!--<div bind-innerHTML="{{brackets}}"></div>-->
-  <div>
-    <h1>Events binding</h1>
-    <button (click)="functionBinding()">click me!</button>
-    <!--<button on-click="functionBinding()">click me!</button>-->
-  </div>
-  <div>
+  <section>
+    <h1>One-way data binding</h1>
+    <h3>Data source -> View target</h3>
+    <div>this is a double curly brackets binding: {{brackets}}</div>
+    <div>element's [innerHTML] property binding: <span [innerHTML]="brackets"></span></div>
+    <div>buttons's aria-label attribute binding: <button [attr.aria-label]="helpText">?</button></div>
+    <div>element's style property binding: <span [style.color]="color"><b>The maze isn't meant for you.</b></span>
+      <input [(ngModel)]="color" />
+    </div>
+    <div>
+      <h3>View target -> Data source (Events)</h3>
+      <button (click)="functionBinding()">click me!</button>
+      <button on-click="functionBinding()">on-click me!</button>
+    </div>
+  </section>
+  <hr>
+  <section>
     <h1>2 Way data binding</h1>
     <div>Two Way Binding Value: {{twoWayBinding}}</div>
-    <!--<input type="text" [ngModel]="twoWayBinding" (ngModelChange)="twoWayBinding = $event" />-->
+    <input type="text" [ngModel]="twoWayBinding" (ngModelChange)="twoWayBinding = $event" />
     <input type="text" [(ngModel)]="twoWayBinding" />
-  </div>
-  <div>
-    <h1>Element instance reference</h1>
-    Update On Blur
-    <input [value]="twoWayBinding" #inputRef (blur)="twoWayBinding=inputRef.value" />
-  </div>
-  <div>
-    <h1>Directives</h1>
-    <p hightlight-on-hover>Hover Here!!!</p>
-  </div>
-
+  </section>
+  <hr>
+  <section>
+    <div>
+      <h1>Element instance reference</h1>
+      Update On Blur
+      <input [value]="twoWayBinding" #inputRef (blur)="twoWayBinding=inputRef.value" />
+    </div>
+  </section>
+  <hr>
+  <section>
+    <div>
+      <h1>Directives</h1>
+      <p hightlight-on-hover>Hover Here!!!</p>
+    </div>
+    <div>
+      <h1>Structural directives</h1>
+      <div>
+        <h3>NgIf</h3>
+        <input type="checkbox" [(ngModel)]="shouldDisplay" />display spinner?
+        <img *ngIf="shouldDisplay" alt="i'm a loader" width="25" height="25" src="https://stanfy.com/wp-content/uploads/2015/09/1-V3h-VWthi5lL0QySF6qZPw.gif"
+        />
+      </div>
+      <div>
+        <h3>NgFor</h3>
+        <ul>
+          <li *ngFor="let race of eveRaces">{{race}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </div>

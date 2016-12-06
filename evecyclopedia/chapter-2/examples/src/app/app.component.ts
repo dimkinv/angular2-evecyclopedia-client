@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  brackets = `Hey! I'm a bracket! {}`;
+  brackets:string = `Hey! I'm a bracket! {}`;
+  helpText:string = 'This is a great button, you should definatelly click it!';
+  color:string = 'red';
+  twoWayBinding:string = '';
 
-  twoWayBinding = '';
-
+  shouldDisplay:boolean= true;
+  eveRaces: string[] = ['Amarr', 'Caldari', 'Gallente', 'Minmatar', 'Jove'];
   functionBinding(){
     alert(`Do not use alerts in examples! they are annoying!`);
   }
