@@ -39,7 +39,7 @@
       <h1>Structural directives</h1>
       <div>
         <h3>NgIf</h3>
-        <input type="checkbox" [(ngModel)]="shouldDisplay" />display spinner?
+        <input type="checkbox" [(ngModel)]="shouldDisplay" />remove spinner
         <img *ngIf="shouldDisplay" alt="i'm a loader" width="25" height="25" src="https://stanfy.com/wp-content/uploads/2015/09/1-V3h-VWthi5lL0QySF6qZPw.gif"
         />
       </div>
@@ -48,6 +48,22 @@
         <ul>
           <li *ngFor="let race of eveRaces">{{race}}</li>
         </ul>
+      </div>
+      <div>
+        <h3>NgSwitch</h3>
+        <div>
+          <input type="radio" name="status" [(ngModel)]="status" value="in-progress"> 1<br>
+          <input type="radio" name="status" [(ngModel)]="status" value="success"> 2<br>
+          <input type="radio" name="status" [(ngModel)]="status" value="error"> 3<br>
+          <input type="radio" name="status" [(ngModel)]="status" value="other"> 4  
+        </div>
+        <div [ngSwitch]="status">
+          Status: 
+          <span *ngSwitchCase="'in-progress'">In Progress</span>
+          <span *ngSwitchCase="'success'">Success</span>
+          <span *ngSwitchCase="'error'">Error</span>
+          <span *ngSwitchDefault>Unknown</span>
+        </div>
       </div>
     </div>
   </section>

@@ -13,6 +13,7 @@ export class AppComponent {
 
   shouldDisplay:boolean= true;
   eveRaces: string[] = ['Amarr', 'Caldari', 'Gallente', 'Minmatar', 'Jove'];
+  status: string='other';
   functionBinding(){
     alert(`Do not use alerts in examples! they are annoying!`);
   }
