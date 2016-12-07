@@ -6,12 +6,12 @@ import {Component, OnInit , OnDestroy } from '@angular/core';
 })
 export class LifecyclesComponent implements OnInit, OnDestroy{
     constructor(){
-        console.log('Component constructor called');
+        console.log('%c constructor :: Component constructor called! ', 'background: #222; color: #bada55; font-size: 20px');
     }
     ngOnInit(){
-        console.log('Component initiated!');
+        console.log('%c ngOnInit    :: Component initiated!', 'background: #222; color: #da9955; font-size: 20px');
     }
     ngOnDestroy(){
-        console.log('Component destroyed!');
+        console.log('%c ngOnDestroy :: Component destroyed!', 'background: #222; color: #da5555; font-size: 20px');
     }
 }
