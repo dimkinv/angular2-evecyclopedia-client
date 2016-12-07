@@ -6,7 +6,18 @@
 <hr>
 <section>
   <h1>Component's interactions</h1>
-  <parent-component></parent-component>
+
+  <div style="border:1px solid #343434; margin-top: 10px; margin-bottom: 10px">
+    <div><b>Passing data to child and detecting changes</b></div>
+    <div>firstName: <input type="text" [(ngModel)]="firstName"/></div>
+    <div>lastName: <input type="text" [(ngModel)]="lastName"/></div>
+    <detect-input-changes [firstName]="firstName" [lastName]="lastName"></detect-input-changes>
+  </div>
+  <hr>
+  <div style="border:1px solid #343434; margin-top: 10px; margin-bottom: 10px">
+    <div><b>Passing data between parent and child</b></div>
+    <parent-component></parent-component>
+  </div>
 </section>
 <hr>
 <section>

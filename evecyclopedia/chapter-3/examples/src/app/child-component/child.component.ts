@@ -5,11 +5,14 @@ import {Component, Input, Output, EventEmitter } from '@angular/core';
     templateUrl: './child.component.html'
 })
 export class ChildComponent{
-    @Input()counter:string;
+    @Input() counter:number;
 
-    @Output()counterChange:EventEmitter<string> = new EventEmitter();
+    @Output()counterChange:EventEmitter<number> = new EventEmitter();
 
     add(){
         this.counterChange.emit(this.counter + 1);
+    }
+    sub(){
+        this.counterChange.emit(this.counter - 1);
     }
 }

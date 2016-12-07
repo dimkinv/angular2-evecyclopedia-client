@@ -1,6 +1,6 @@
 <div style="border: 3px dashed #a1a1ea">
     <div>Im a parent component</div>
-    <div>parentNumber: {{parentNumber}}</div>
+    <div>Parent's value: {{parentNumber}}</div>
     <child-component [counter]="parentNumber" (counterChange)="onCounterChnage($event)"></child-component>
 
     <!--<child-component [(counter)]="parentNumber"></child-component>-->

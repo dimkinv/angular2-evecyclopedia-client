@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  firstName:string;
+  lastName:string;
   displayLifecycleComponent:boolean=false;
   title = 'app works!';
   number:number = 100;

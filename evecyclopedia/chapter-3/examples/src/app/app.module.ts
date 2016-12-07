@@ -10,7 +10,7 @@ import {ReminderPipe} from './reminder-pipe/reminder.pipe';
 import {ParentComponent} from './parent-component/parent.component';
 import {ChildComponent} from './child-component/child.component';
 import {LifecyclesComponent} from './lifecycles/lifecycles.component';
-
+import {DetectInputChangesComponent} from './detect-input-changes/detect-input-changes.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,8 @@ import {LifecyclesComponent} from './lifecycles/lifecycles.component';
     ReminderPipe,
     ParentComponent,
     ChildComponent,
-    LifecyclesComponent
+    LifecyclesComponent,
+    DetectInputChangesComponent
   ],
   imports: [
     BrowserModule,
