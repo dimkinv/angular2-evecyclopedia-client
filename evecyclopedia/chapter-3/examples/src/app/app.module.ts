@@ -11,6 +11,8 @@ import {ParentComponent} from './parent-component/parent.component';
 import {ChildComponent} from './child-component/child.component';
 import {LifecyclesComponent} from './lifecycles/lifecycles.component';
 import {DetectInputChangesComponent} from './detect-input-changes/detect-input-changes.component'
+import {UserComponent} from './change-detection/user-data.component'
+import {FullnameComponent} from './change-detection/fullname.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import {DetectInputChangesComponent} from './detect-input-changes/detect-input-c
     ParentComponent,
     ChildComponent,
     LifecyclesComponent,
-    DetectInputChangesComponent
+    DetectInputChangesComponent,
+    UserComponent,
+    FullnameComponent
   ],
   imports: [
     BrowserModule,
