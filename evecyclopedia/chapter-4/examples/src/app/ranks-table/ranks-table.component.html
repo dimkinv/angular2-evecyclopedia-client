@@ -1,0 +1,10 @@
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Points</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{user.points}}</td>
+  </tr>
+</table>

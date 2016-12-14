@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import {ShipsService, IShipsService} from '../ships-service/ships.service';
+import {ShipsService, IShipsService} from './ships.service';
 
 @Component({
     selector:'ships-component',
@@ -14,5 +14,4 @@ export class ShipsComponent implements OnInit{
         this.ships = this.shipsService.getShips();
     }
     
-   
 }
