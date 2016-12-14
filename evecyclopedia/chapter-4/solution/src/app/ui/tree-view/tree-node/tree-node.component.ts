@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 
 @Component({
@@ -7,10 +7,11 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   templateUrl: 'tree-node.component.html'
 })
 export class TreeNodeComponent {
-  @Output()
-  onNodeClick = new EventEmitter();
   @Input()
   title: string;
+  @Input()
+  isSelected: boolean;
+
   constructor() {
 
   }
