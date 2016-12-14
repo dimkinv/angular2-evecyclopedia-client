@@ -1,5 +1,6 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import * as mock from '../../../app.data';
+import {ShipSelector} from '../../models/ship-selector.model';
+import {ShipsService} from '../../services/ships.service';
 
 
 @Component({
@@ -8,7 +9,7 @@ import * as mock from '../../../app.data';
   templateUrl: 'tree-view.component.html',
 })
 export class TreeViewComponent {
-  @Output() change:EventEmitter<any> =  new EventEmitter();
+  @Output() change:EventEmitter<ShipSelector> =  new EventEmitter();
 
   groups: {name: string}[];
   groupRaces: {name: string}[];
@@ -17,15 +18,15 @@ export class TreeViewComponent {
   selectedRace: string;
   selectedShip: string;
 
-  constructor() {
-    this.groups = mock.getGroups();
+  constructor(private shipsService:ShipsService) {
+    this.groups = this.shipsService.getGroups();
   }
 
   getRaces(groupName){
     if(groupName === this.selectedGroup){
       return
     }
-    this.groupRaces = mock.getRacesForGroupName(groupName);
+    this.groupRaces = this.shipsService.getRaces(groupName);
     this.selectedGroup = groupName;
     this.selectedRace = null;
     this.selectedShip = null;
@@ -35,7 +36,7 @@ export class TreeViewComponent {
     if(raceName === this.selectedRace){
       return
     }
-    this.groupRaceShips = mock.getShipsByGroupAndRace(groupName, raceName) 
+    this.groupRaceShips = this.shipsService.getShips(groupName, raceName) 
     this.selectedRace = raceName;
     this.selectedShip = null;
   }
@@ -45,7 +46,6 @@ export class TreeViewComponent {
       return
     }
     this.selectedShip = shipName;
-    this.change.emit(mock.getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipName));
-    console.log('SHIP selected: ', shipName);
+    this.change.emit({groupName, raceName, shipName});
   }
 }

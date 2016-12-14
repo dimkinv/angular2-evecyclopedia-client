@@ -1,17 +1,24 @@
-import {Component, Input} from '@angular/core';
-import * as mock from '../../../app.data';
+import {Component, Input, OnChanges} from '@angular/core';
+import {ShipSelector} from '../../models/ship-selector.model';
 import {Ship} from '../../models/ship.model';
+import {ShipsService} from '../../services/ships.service';
 
 @Component({
   selector: 'ship-details',
   styleUrls: ['ship-details.component.less'],
   templateUrl: 'ship-details.component.html'
 })
-export class ShipDetailsComponent {
+export class ShipDetailsComponent implements OnChanges {
   @Input()
-  ship: Ship;
+  shipSelector: ShipSelector;
 
-  constructor() {
-    //this.ship = mock.getRandomShip();
+  ship:Ship;
+
+  constructor(private shipsService:ShipsService) {}
+
+  ngOnChanges(changeObj){
+    if(changeObj.shipSelector.currentValue){
+      this.ship = this.shipsService.getShip(this.shipSelector.groupName, this.shipSelector.raceName, this.shipSelector.shipName)
+    }
   }
 }

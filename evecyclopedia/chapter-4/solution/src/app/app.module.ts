@@ -9,6 +9,8 @@ import {TreeViewComponent} from './ui/tree-view/tree-view.component';
 import {TreeNodeComponent} from './ui/tree-view/tree-node/tree-node.component';
 import {EllipsisPipe} from './pipes/ellipsis/ellipsis.pipe';
 
+import {ShipsService} from './services/ships.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import {EllipsisPipe} from './pipes/ellipsis/ellipsis.pipe';
     FormsModule,
     HttpModule,
   ],
-  providers: [],
+  providers: [ ShipsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

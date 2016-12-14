@@ -1,4 +1,4 @@
 <div class="container">
-  <tree-view (change)="ship = $event"></tree-view>
-  <ship-details [ship]="ship" *ngIf="ship"></ship-details>
+  <tree-view (change)="shipSelector = $event"></tree-view>
+  <ship-details [shipSelector]="shipSelector"></ship-details>
 </div>
