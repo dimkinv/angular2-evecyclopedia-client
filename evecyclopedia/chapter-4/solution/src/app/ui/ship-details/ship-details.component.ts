@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as mock from '../../../app.data';
 import {Ship} from '../../models/ship.model';
 
@@ -8,9 +8,10 @@ import {Ship} from '../../models/ship.model';
   templateUrl: 'ship-details.component.html'
 })
 export class ShipDetailsComponent {
+  @Input()
   ship: Ship;
 
   constructor() {
-    this.ship = mock.getRandomShip();
+    //this.ship = mock.getRandomShip();
   }
 }
