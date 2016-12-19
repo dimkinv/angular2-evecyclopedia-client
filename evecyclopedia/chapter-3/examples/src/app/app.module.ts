@@ -13,6 +13,7 @@ import {LifecyclesComponent} from './lifecycles/lifecycles.component';
 import {DetectInputChangesComponent} from './detect-input-changes/detect-input-changes.component'
 import {UserComponent} from './change-detection/user-data.component'
 import {FullnameComponent} from './change-detection/fullname.component'
+import {TickComponent} from './tick/tick.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import {FullnameComponent} from './change-detection/fullname.component'
     LifecyclesComponent,
     DetectInputChangesComponent,
     UserComponent,
-    FullnameComponent
+    FullnameComponent,
+    TickComponent
   ],
   imports: [
     BrowserModule,
