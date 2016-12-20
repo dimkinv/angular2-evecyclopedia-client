@@ -4,3 +4,4 @@ last name: <input type="text" [(ngModel)]="user.lastName" />
 <br/>
 address: <input type="text" [(ngModel)]="user.address" />
 <h2><fullname [user]="user"></fullname></h2>
+<button (click)="newUser()">create new user</button>
