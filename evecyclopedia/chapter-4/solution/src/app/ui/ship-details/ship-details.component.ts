@@ -18,7 +18,11 @@ export class ShipDetailsComponent implements OnChanges {
 
   ngOnChanges(changeObj){
     if(changeObj.shipSelector.currentValue){
-      this.ship = this.shipsService.getShip(this.shipSelector.groupName, this.shipSelector.raceName, this.shipSelector.shipName)
+      this.ship = this.shipsService.getShip(this.shipSelector.groupName, this.shipSelector.raceName, this.shipSelector.shipName);
     }
+  }
+
+  get encodedShipName(){
+    return encodeURI(this.ship.name)
   }
 }
