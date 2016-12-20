@@ -16,4 +16,9 @@ export class UserComponent{
   constructor(){
     this.user = new User();
   }
+
+  newUser(){
+    this.user = new User();
+    this.user.firstName = 'Danny';
+  }
 }
