@@ -3,7 +3,7 @@ export interface IShipsService{
 }
 
 export class ShipsService{
-    ships:string[] = ['Vengeance', 'Retribution', 'Rifter', 'Bowhead', 'Orca'];
+    ships:string[] = ['Apocalypse Imperial Issue','Armageddon Imperial Issue','Apocalypse Navy Issue','Bhaalgorn','Armageddon Navy Issue'];
     getShips(){
         return this.ships;
     }

@@ -1,11 +1,13 @@
 <section>
     <h1>Dependency Injection</h1>
-    <ships-component></ships-component>
-    <ships-di-component></ships-di-component>
+    <input type="checkbox" [(ngModel)]="isDI"/><label>Use DI?</label>
+    <ships-component *ngIf="!isDI"></ships-component>
+    <ships-di-component *ngIf="isDI"></ships-di-component>
+    <hr>
     <h4>Using AppModule level service injection</h4>
     <div>Hello {{userService.userDetails.firstName}}...</div>
     <hr>
     <ranks-table></ranks-table>
-    <div style="width: 410px; margin:4px auto; color: #ab2d9a; font-weight: bold">&#8593;&#8595; Both components are sharing the same service &#8593;&#8595;</div>
+    <div style="width: 430px; margin:4px auto; color: #ab2d9a; font-weight: bold">&#8593;&#8595; Both components are sharing the same service &#8593;&#8595;</div>
     <add-user></add-user>
 </section>
