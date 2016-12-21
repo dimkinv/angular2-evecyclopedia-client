@@ -6,10 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {  JsonViewerComponent } from './ui/json-viewer/json-viewer.component';
 import {ApiService} from './services/api.service';
+import {JsonBeautify} from './pipes/json-beutify.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
-    JsonViewerComponent
+    JsonViewerComponent,
+    JsonBeautify
   ],
   imports: [
     BrowserModule,
