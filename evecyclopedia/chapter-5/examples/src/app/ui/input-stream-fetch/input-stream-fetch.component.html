@@ -1,0 +1,5 @@
+<h3>Observables to HTTP</h3>
+<div>Input keyup event -> Observable -> fire HTTP GET (and cancel previous ones)</div>
+<label>Query: </label><input #myInput (keyup)="onKeyUp(myInput.value)"/>
+<div>Response: </div>
+<p>{{responseStream$ | async | json}}</p>

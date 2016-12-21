@@ -2,9 +2,8 @@ import {Component} from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {Observable} from 'rxjs';
 @Component({
-  selector: 'json-viewer',
-  templateUrl: 'json-viewer.component.html',
-  styleUrls: ['json-viewer.component.less']
+    selector: 'json-viewer',
+    templateUrl: 'json-viewer.component.html'
 })
 export class JsonViewerComponent {
   jsonData: any;

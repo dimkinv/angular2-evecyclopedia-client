@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import {  JsonViewerComponent } from './ui/json-viewer/json-viewer.component';
 import {ApiService} from './services/api.service';
 import {JsonBeautify} from './pipes/json-beutify.pipe';
+import { InputStreamFetchComponent} from './ui/input-stream-fetch/input-stream-fetch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JsonViewerComponent,
-    JsonBeautify
+    JsonBeautify,
+    InputStreamFetchComponent
   ],
   imports: [
     BrowserModule,

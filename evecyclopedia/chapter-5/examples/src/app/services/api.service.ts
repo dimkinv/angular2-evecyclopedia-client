@@ -6,17 +6,25 @@ import 'rxjs/add/observable/throw';
 
 
 @Injectable()
-export class ApiService {
-  constructor(private http: Http) {
-  }
+export class ApiService{
+    headers:Headers = new Headers({});
 
-  getJson(url: string): Observable<any> {
-    return this.http.get(url)
-      .map(res => res.json())
-  }
 
-  getString(url: string): Observable<string> {
-    return this.http.get(url)
-      .map(res => res.text());
-  }
+    constructor(private http:Http){}
+
+    getJson(url:string):Observable<any>{
+        return this.http.get(url)
+                    .map(res => res.json())
+    }
+
+    getString(url: string): Observable<string> {
+      return this.http.get(url)
+        .map(res => res.text());
+    }
+
+    search(query:string):Observable<any>{
+        this.headers.set('X-NABIL', query);
+        return this.http.get('https://evecyclopedia.herokuapp.com/api/groups', {headers: this.headers})
+                    .map(res => res.json())
+    }
 }
