@@ -7,9 +7,6 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class ApiService{
-    headers:Headers = new Headers({});
-
-
     constructor(private http:Http){}
 
     getJson(url:string):Observable<any>{
@@ -22,9 +19,19 @@ export class ApiService{
         .map(res => res.text());
     }
 
-    search(query:string):Observable<any>{
-        this.headers.set('X-NABIL', query);
-        return this.http.get('https://evecyclopedia.herokuapp.com/api/groups', {headers: this.headers})
-                    .map(res => res.json())
+    searchGroup(query:string):Observable<any>{
+        return this.http.get('https://evecyclopedia.herokuapp.com/api/groups/'+query)
+                    .map(res => {
+                        if(res.status>=200 && res.status<300){
+                            return res.json();
+                        }else{
+                            return Observable.of('Error')
+                        }
+                    })
+                    .catch(err => {
+                      return Observable.of('Error');
+                    })
     }
+
+
 }

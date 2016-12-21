@@ -13,7 +13,7 @@ export class InputStreamFetchComponent{
     constructor(private apiService:ApiService){
         this.responseStream$ = this.inputStram$
                     //.debounceTime(200)
-                    .switchMap(query => this.apiService.search(query));
+                    .switchMap(query => this.apiService.searchGroup(query))
     }
 
     onKeyUp(newVal){
