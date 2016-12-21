@@ -1,7 +1,10 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {ShipSelector} from '../../models/ship-selector.model';
 import {ShipsService} from '../../services/ships.service';
-
+import {Observable} from 'rxjs';
+import {Group} from '../../models/group.model';
+import {Race} from '../../models/race.model';
+import {Ship} from '../../models/ship.model';
 
 @Component({
   selector: 'tree-view',
@@ -9,24 +12,28 @@ import {ShipsService} from '../../services/ships.service';
   templateUrl: 'tree-view.component.html',
 })
 export class TreeViewComponent {
-  @Output() change:EventEmitter<ShipSelector> =  new EventEmitter();
+  @Output() change:EventEmitter<any> =  new EventEmitter();
 
-  groups: {name: string}[];
-  groupRaces: {name: string}[];
+  groups: Group[];
+  groupRaces: Race[];
   groupRaceShips: {name:string}[];
   selectedGroup: string;
   selectedRace: string;
   selectedShip: string;
 
   constructor(private shipsService:ShipsService) {
-    this.groups = this.shipsService.getGroups();
+    this.shipsService.getGroups().subscribe(groupsData =>{
+      this.groups = groupsData;
+    });
   }
 
   getRaces(groupName){
     if(groupName === this.selectedGroup){
       return
     }
-    this.groupRaces = this.shipsService.getRaces(groupName);
+    this.shipsService.getRaces(groupName).subscribe(racesData => {
+      this.groupRaces = racesData;
+    });
     this.selectedGroup = groupName;
     this.selectedRace = null;
     this.selectedShip = null;
@@ -36,7 +43,9 @@ export class TreeViewComponent {
     if(raceName === this.selectedRace){
       return
     }
-    this.groupRaceShips = this.shipsService.getShips(groupName, raceName) 
+    this.shipsService.getShips(groupName, raceName).subscribe(shipsData => {
+        this.groupRaceShips = shipsData;
+    }) 
     this.selectedRace = raceName;
     this.selectedShip = null;
   }
