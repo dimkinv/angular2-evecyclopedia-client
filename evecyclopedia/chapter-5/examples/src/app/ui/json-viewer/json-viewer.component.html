@@ -1,18 +1,27 @@
-<h3>Fetching data using HTTP</h3>
-<input type="text" #url />
-<button (click)="fetchData(url.value)">FETCH</button>
-<div>Response:</div>
-<p [innerHTML]="jsonData | jsonBeautify"></p>
+<section>
+    <h3>Fetching data using HTTP</h3>
+    <label>URL:</label><input type="text" #url />
+    <button (click)="fetchData(url.value)">FETCH</button>
+    <div>Response:</div>
+    <p [innerHTML]="jsonData | jsonBeautify"></p>
+</section>
 <hr>
-<h3>Using Async pipe to subscribe observables</h3>
-<input type="text" #url2 />
-<button (click)="fetchDataUsingObservable(url2.value)">FETCH</button>
-<div>Response:</div>
-<p [innerHTML]="observableData$ | async | jsonBeautify"></p>
-
-
-<h3>HTTP error handling</h3>
-
-<h3>Retry</h3>
-
-<h3>Cancel request</h3>
+<section>
+    <h3>Using Async pipe to subscribe observables</h3>
+    <label>URL:</label><input type="text" #url2 />
+    <button (click)="fetchDataUsingObservable(url2.value)">FETCH</button>
+    <div>Response:</div>
+    <p [innerHTML]="observableData$ | async | jsonBeautify"></p>
+</section>
+<hr>
+<section>
+    <h3>HTTP error handling</h3>
+</section>
+<hr>
+<section>
+    <h3>Retry</h3>
+</section>
+<hr>
+<section>
+    <h3>Cancel request</h3>
+</section>

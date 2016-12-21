@@ -1,9 +1,39 @@
+*{
+    box-sizing: border-box;
+}
 input{
-
+    font-size: 12px;
+    width: 400px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid #191919;
+    &:focus{
+        border-color: #3594ff;
+        outline: none;
+        font-weight: bold;
+    }
 }
 button{
-
+    outline: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #191919;
+    font-size: 12px;
+    height: 20px;
+    &:hover{
+        background-color: #3594ff;
+        color: #fff;
+    }
+}
+div{
+    padding: 10px 0;
 }
 p{
-    
+    font-size: 10px;
+}
+section{
+    padding: 20px 0;
+    &:first-child{
+        padding-top: 0;
+    }
 }
