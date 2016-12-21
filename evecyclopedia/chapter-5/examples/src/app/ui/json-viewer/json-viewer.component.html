@@ -26,4 +26,9 @@
 <hr>
 <section>
   <h3>Cancel request</h3>
+   <button (click)="fetchSlowRequest()">FETCH</button>
+   <button (click)="cancelSlowRequest()">CANCEL</button>
+   <div class="loader" *ngIf="slowRes===null"></div>
+   <img src="http://www.funnyhappyquote.com/wp-content/uploads/2013/12/happy-quotes-2444.jpg" *ngIf="slowRes==='ok'" />
+   
 </section>
