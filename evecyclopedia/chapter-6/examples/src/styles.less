@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+html *{
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+input{
+    font-size: 12px;
+    width: 400px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid #191919;
+    &:focus{
+        border-color: #3594ff;
+        outline: none;
+        font-weight: bold;
+    }
+}
+button{
+    outline: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #191919;
+    font-size: 12px;
+    height: 20px;
+    &:hover{
+        background-color: #3594ff;
+        color: #fff;
+    }
+}
+div{
+    padding: 10px 0;
+}
+p{
+    font-size: 10px;
+}
+section{
+    padding: 20px 0;
+    &:first-child{
+        padding-top: 0;
+    }
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
