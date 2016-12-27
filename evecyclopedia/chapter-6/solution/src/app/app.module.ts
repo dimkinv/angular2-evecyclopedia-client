@@ -15,6 +15,7 @@ import { HomeComponent } from './ui/home/home.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
 import { AboutComponent } from './ui/about/about.component';
+import '../rxjs-addons';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AboutComponent } from './ui/about/about.component';
     EllipsisPipe,
     ShipEditorComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

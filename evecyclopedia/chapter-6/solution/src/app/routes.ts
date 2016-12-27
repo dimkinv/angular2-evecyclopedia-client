@@ -17,5 +17,9 @@ export const routes:Routes = [
         path: 'group/:groupName/race/:raceName/ship/:shipName',
         component: ShipEditorComponent
     },
+    {
+        path: 'new-ship',
+        component: ShipEditorComponent
+    },
     {path: '**', redirectTo: ''}
 ]

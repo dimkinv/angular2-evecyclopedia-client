@@ -4,21 +4,24 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {MainViewComponent} from './ui/main-view/main-view.component';
-import {DetailsViewComponent} from './ui/details-view/details-view.component';
+import {InputStreamFetchComponent} from './ui/input-stream-fetch/input-stream-fetch.component';
+import {JsonViewerComponent} from './ui/json-viewer/json-viewer.component';
+
+import {JsonBeautify} from './pipes/json-beutify.pipe';
+import {ApiService} from './services/api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainViewComponent,
-    DetailsViewComponent
+    InputStreamFetchComponent,
+    JsonViewerComponent,JsonBeautify
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

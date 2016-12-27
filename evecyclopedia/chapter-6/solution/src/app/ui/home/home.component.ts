@@ -22,13 +22,6 @@ export class HomeComponent {
   }
 
   editShip(){
-    this.router.navigate(['/group', this.selectedShip.group, '/race', this.selectedShip.race, '/ship', this.selectedShip.name]);
-  }
-
-  addNewShip(shipSelector){
-    this.router.navigate(['/group', shipSelector.groupName, '/race', shipSelector.raceName, '/ship', '__new__']);
-  }
-  goToAbout(){
-    this.router.navigate(['/about']);
+    this.router.navigate(['/group', this.selectedShip.group, 'race', this.selectedShip.race, 'ship', this.selectedShip.name]);
   }
 }

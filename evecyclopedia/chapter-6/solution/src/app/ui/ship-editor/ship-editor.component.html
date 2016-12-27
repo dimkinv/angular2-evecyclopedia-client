@@ -1,3 +1,35 @@
-<p>
-  ship-editor works!
-</p>
+<div class="title">{{isEdit ? 'Edit ship' : 'Create Ship'}}</div>
+<div class="item">
+    <div class="label">Group:</div>
+    <select [(ngModel)]="ship.group">
+    <option *ngFor="let group of groups$ | async">{{group.name}}</option>
+</select>
+</div>
+<div class="item">
+    <div class="label">Race:</div>
+    <select [(ngModel)]="ship.race">
+    <option *ngFor="let race of races$ | async">{{race.name}}</option>
+</select>
+</div>
+<div class="item">
+    <div class="label">Name:</div>
+    <input type="text" [(ngModel)]="ship.name" />
+</div>
+<div class="item">
+    <div class="label">Description:</div>
+    <input type="text" [(ngModel)]="ship.description" />
+</div>
+<div class="item">
+    <div class="label">Volume:</div>
+    <input type="number" [(ngModel)]="ship.volume" />
+</div>
+<div class="item">
+    <div class="label">Capacity:</div>
+    <input type="number" [(ngModel)]="ship.capacity" />
+</div>
+<div class="item">
+    <div class="label">Mass:</div>
+    <input type="number" [(ngModel)]="ship.mass" />
+</div>
+<button (click)="cancel()">CANCEL</button>
+<button (click)="save()">SAVE</button>

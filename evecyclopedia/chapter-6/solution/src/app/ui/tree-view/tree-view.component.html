@@ -1,7 +1,6 @@
 <div>
   <tree-node *ngFor="let group of groups" [title]="group.name" (click)="getRaces(group.name)" [isSelected]="selectedGroup === group.name">
     <tree-node *ngFor="let race of groupRaces" [title]="race.name" (click)="getShips(group.name, race.name)" [isSelected]="selectedRace === race.name">
-      <button class="" (click)="addNewShip()">+Add New Ship</button>
       <tree-node *ngFor="let ship of groupRaceShips" [title]="ship.name" (click)="selectShip(group.name, race.name, ship.name)" [isSelected]="selectedShip === ship.name">
       </tree-node>
     </tree-node>

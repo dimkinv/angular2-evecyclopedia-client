@@ -13,7 +13,6 @@ import {Ship} from '../../models/ship.model';
 })
 export class TreeViewComponent implements OnInit {
   @Output() change:EventEmitter<any> =  new EventEmitter();
-  @Output() addShip:EventEmitter<any> = new EventEmitter();
 
   groups: Group[];
   groupRaces: Race[];
@@ -59,9 +58,5 @@ export class TreeViewComponent implements OnInit {
     }
     this.selectedShip = shipName;
     this.change.emit({groupName, raceName, shipName});
-  }
-
-  addNewShip(){
-    this.addShip.emit({groupName: this.selectedGroup, raceName: this.selectedRace});
   }
 }
