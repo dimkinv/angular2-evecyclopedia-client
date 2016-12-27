@@ -1,1 +1,9 @@
-im a main view
+<p>
+  im a main view
+  <button routerLink="/details" routerLinkActive="active">Goto details</button>
+  <button (click)="gotoDetails()">Goto details via code</button>
+</p>
+<p>
+  Please set a number: <input type="text" [(ngModel)]="rand"/>
+  <button (click)="gotoDetailsWithParam()">Goto details with param</button>
+</p>

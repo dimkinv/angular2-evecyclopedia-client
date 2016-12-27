@@ -7,11 +7,13 @@ import {RouterModule} from '@angular/router';
 import {routes} from './app-routes';
 import {AppComponent} from './app.component';
 import {MainViewComponent} from './ui/main-view/main-view.component';
+import {DetailsViewComponent} from './ui/details-view/details-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainViewComponent
+    MainViewComponent,
+    DetailsViewComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
