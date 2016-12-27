@@ -1,1 +1,12 @@
 <h1>Home</h1>
+<p>
+    Navigate to news via html-link <button routerLink="/news">Goto News</button>
+</p>
+<p>
+    Navigate to news via code <button (click)="gotoNews()">Goto News</button>
+</p>
+<p>
+    Navigate to news with parameter: <input type="text" [(ngModel)]="value"/>
+    <button (click)="gotoNewsWithParam()">Goto News With Param via Code</button>
+    <button routerLink="">Goto News With Param via html-link</button>
+</p>

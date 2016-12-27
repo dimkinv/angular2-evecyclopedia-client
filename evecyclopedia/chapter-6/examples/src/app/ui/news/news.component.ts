@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.less']
 })
 export class NewsComponent implements OnInit {
-
-  constructor() { }
+  private newsId: string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.newsId = this.route.snapshot.params['newsId'];
   }
 
 }

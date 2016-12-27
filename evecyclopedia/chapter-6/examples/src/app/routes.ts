@@ -13,6 +13,10 @@ export const routes:Routes = [
         component: NewsComponent,
     },
     {
+        path: 'news/:newsId',
+        component: NewsComponent
+    },
+    {
         path: 'about',
         component: AboutComponent,
     },
