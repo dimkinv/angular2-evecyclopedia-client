@@ -2,8 +2,9 @@ import { Routes } from '@angular/router';
 import { AboutComponent } from './ui/about/about.component';
 import { HomeComponent } from './ui/home/home.component';
 import { NewsComponent } from './ui/news/news.component';
+import { HeaderComponent } from './ui/header/header.component';
 
-export const routes:Routes = [
+export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
@@ -13,12 +14,17 @@ export const routes:Routes = [
         component: NewsComponent,
     },
     {
-        path: 'news/:newsId',
+        path: 'news/:groupId',
         component: NewsComponent
     },
     {
         path: 'about',
         component: AboutComponent,
     },
-    {path: '**', redirectTo: 'home'}
+    // {
+    //     path: '',
+    //     component: HeaderComponent,
+    //     outlet: 'header'
+    // },
+    {path: '**', redirectTo: 'home' }
 ]
