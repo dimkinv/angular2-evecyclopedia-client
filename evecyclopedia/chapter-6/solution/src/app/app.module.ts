@@ -14,6 +14,7 @@ import { HomeComponent } from './ui/home/home.component';
 //ROUTER MODULE
 import {RouterModule} from '@angular/router';
 import {routes} from './routes';
+import { AboutComponent } from './ui/about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {routes} from './routes';
     TreeNodeComponent,
     EllipsisPipe,
     ShipEditorComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

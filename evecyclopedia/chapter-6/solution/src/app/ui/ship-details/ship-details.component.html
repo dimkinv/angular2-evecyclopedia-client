@@ -1,4 +1,5 @@
 <div class="ship-card" [style.background-image]="'url(https://evecyclopedia.herokuapp.com/api/ships/' + encodedShipName + '/image)'" *ngIf="ship">
+  <button (click)="editShip()">EDIT</button>
   <div class="content">
     <div class="bottom">
       <div class="title">

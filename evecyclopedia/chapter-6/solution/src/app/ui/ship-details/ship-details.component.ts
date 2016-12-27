@@ -1,31 +1,26 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {ShipSelector} from '../../models/ship-selector.model';
 import {Ship} from '../../models/ship.model';
-import {ShipsService} from '../../services/ships.service';
+import {Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ship-details',
   styleUrls: ['ship-details.component.less'],
   templateUrl: 'ship-details.component.html'
 })
-export class ShipDetailsComponent implements OnChanges {
+export class ShipDetailsComponent {
   @Input()
-  shipSelector: ShipSelector;
+  ship: Ship;
+  
+  @Output()
+  edit: EventEmitter<any> = new EventEmitter();
 
-  ship:Ship;
-
-  constructor(private shipsService:ShipsService) {}
-
-  ngOnChanges(changeObj){
-    if(changeObj.shipSelector.currentValue){
-      this.shipsService.getShip(this.shipSelector.groupName, this.shipSelector.raceName, this.shipSelector.shipName)
-                        .subscribe(shipDetails => {
-                          this.ship = shipDetails
-                        });
-    }
-  }
+  constructor(private router:Router) {}
 
   get encodedShipName(){
     return encodeURI(this.ship.name)
+  }
+
+  editShip(){
+      this.edit.emit();
   }
 }

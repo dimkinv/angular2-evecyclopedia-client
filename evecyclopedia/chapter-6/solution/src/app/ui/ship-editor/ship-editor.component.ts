@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-ship-editor',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShipEditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe((params: Params) => {
+        if(params['shipName'] === '__new__'){
+          console.log('Create new Ship');
+        }else{
+          console.log('Edit ship');
+        }
+      });
+
   }
 
 }

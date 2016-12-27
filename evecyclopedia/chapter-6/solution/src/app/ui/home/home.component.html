@@ -1,4 +1,8 @@
+<div class="header">
+  <div class="title">EVECyclopedia</div>
+  <div class="about" (click)="goToAbout()">About</div>
+</div>
 <div class="container">
-  <tree-view (change)="shipSelector = $event"></tree-view>
-  <router-outlet></router-outlet>
+  <tree-view (change)="onShipSelection($event)" (addShip)="addNewShip($event)"></tree-view>
+  <ship-details [ship]="selectedShip" (edit)="editShip()"></ship-details>
 </div>

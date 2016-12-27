@@ -1,5 +1,4 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ShipSelector} from '../../models/ship-selector.model';
 import {ShipsService} from '../../services/ships.service';
 import {Observable} from 'rxjs';
@@ -14,6 +13,7 @@ import {Ship} from '../../models/ship.model';
 })
 export class TreeViewComponent implements OnInit {
   @Output() change:EventEmitter<any> =  new EventEmitter();
+  @Output() addShip:EventEmitter<any> = new EventEmitter();
 
   groups: Group[];
   groupRaces: Race[];
@@ -22,28 +22,12 @@ export class TreeViewComponent implements OnInit {
   selectedRace: string;
   selectedShip: string;
 
-  constructor(private shipsService:ShipsService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private shipsService:ShipsService) {}
 
   ngOnInit(){
     this.shipsService.getGroups().subscribe(groupsData =>{
       this.groups = groupsData;
     });
-
-    this.route.params
-      .subscribe((params: Params) => {
-        if(params['groupName'] && params['raceName'] && params['shipName']){
-          this.getRaces(params['groupName']);
-          this.getShips(params['groupName'], params['raceName']);
-          this.selectShip(params['groupName'], params['raceName'], params['shipName']);
-        }
-        else if(params['groupName'] && params['raceName']){
-          this.getRaces(params['groupName']);
-          this.getShips(params['groupName'], params['raceName']);
-        }
-        else if(params['groupName']){
-          this.getRaces(params['groupName']);
-        }
-      });
   }
 
   getRaces(groupName){
@@ -56,7 +40,6 @@ export class TreeViewComponent implements OnInit {
     this.selectedGroup = groupName;
     this.selectedRace = null;
     this.selectedShip = null;
-    this.router.navigate(['/group', groupName, '/race']);
   }
 
   getShips(groupName, raceName){
@@ -68,7 +51,6 @@ export class TreeViewComponent implements OnInit {
     }) 
     this.selectedRace = raceName;
     this.selectedShip = null;
-    this.router.navigate(['/group', groupName, '/race', raceName, '/ship']);
   }
 
   selectShip(groupName, raceName, shipName){
@@ -77,6 +59,9 @@ export class TreeViewComponent implements OnInit {
     }
     this.selectedShip = shipName;
     this.change.emit({groupName, raceName, shipName});
-    this.router.navigate(['/group', groupName, '/race', raceName, '/ship', shipName]);
+  }
+
+  addNewShip(){
+    this.addShip.emit({groupName: this.selectedGroup, raceName: this.selectedRace});
   }
 }
