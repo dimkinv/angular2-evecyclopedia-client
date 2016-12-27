@@ -3,13 +3,13 @@
 <div class="item">
     <div class="label">Group:</div>
     <select [(ngModel)]="ship.group">
-    <option *ngFor="let group of groups$ | async">{{group.name}}</option>
+    <option *ngFor="let group of groups$ | async" [ngValue]="group.name">{{group.name}}</option>
 </select>
 </div>
 <div class="item">
     <div class="label">Race:</div>
     <select [(ngModel)]="ship.race">
-    <option *ngFor="let race of races$ | async">{{race.name}}</option>
+    <option *ngFor="let race of races$ | async" [ngValue]="race.name">{{race.name}}</option>
 </select>
 </div>
 <div class="item">
