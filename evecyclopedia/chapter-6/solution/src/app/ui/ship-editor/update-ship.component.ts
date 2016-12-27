@@ -11,7 +11,7 @@ import {ShipEditorBase} from './ship-editor.component';
   styleUrls: ['./ship-editor.component.less']
 })
 export class UpdateShipComponent extends ShipEditorBase implements OnInit {
-  isEdit:boolean = true;
+  title: string = 'Update Ship';
 
   constructor(private router: Router, private route: ActivatedRoute, private shipsService:ShipsService) {
     super(shipsService);
@@ -28,11 +28,18 @@ export class UpdateShipComponent extends ShipEditorBase implements OnInit {
   }
 
   save(){
-    console.log('Updating...', this.ship);
+    this.shipsService.updateShip(this.ship)
+                     .subscribe(() => {
+                       console.log('Ship updated successfully!!');
+                       this.router.navigate(['']);
+                     })
   }
 
   cancel(){
     this.router.navigate(['']);
   }
+
+
+  
 
 }

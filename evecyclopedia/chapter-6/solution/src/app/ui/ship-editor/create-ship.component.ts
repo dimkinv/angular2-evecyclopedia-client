@@ -11,14 +11,18 @@ import { ShipEditorBase } from './ship-editor.component';
   styleUrls: ['./ship-editor.component.less']
 })
 export class CreateShipComponent extends ShipEditorBase {
-  isEdit: boolean = false;
+  title: string = 'Create Ship';
 
   constructor(private router: Router, private route: ActivatedRoute, private shipsService: ShipsService) {
     super(shipsService);
   }
 
   save() {
-    console.log('Saving...', this.ship);
+    this.shipsService.createShip(this.ship)
+                     .subscribe(()=>{
+                       console.log('Ship created successfully!!');
+                       this.router.navigate(['']);
+                     })
   }
 
   cancel() {

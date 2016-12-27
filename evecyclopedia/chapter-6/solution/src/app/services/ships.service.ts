@@ -42,12 +42,16 @@ export class ShipsService{
     getShip(groupName, raceName, shipName):Observable<Ship>{
         //return mock.getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipName);
         return this.http.get(`${this.baseUrl}/groups/${groupName}/races/${raceName}/ships/${shipName}`) 
+                        .map(this.checkForErrors)
+                        .catch(err => Observable.throw(err))
                         .map(this.getJson)
     }
 
     createShip(shipDetails){
+        return this.http.post(`${this.baseUrl}/ships`, shipDetails)
     }
     updateShip(shipDetails){
+        return this.http.put(`${this.baseUrl}/ships`, shipDetails) 
     }
 
 
