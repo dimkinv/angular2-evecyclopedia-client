@@ -8,5 +8,5 @@
 <p>
     Navigate to news with parameter: <input type="text" [(ngModel)]="value"/>
     <button (click)="gotoNewsWithParam()">Goto News With Param via Code</button>
-    <button routerLink="">Goto News With Param via html-link</button>
+    <button [routerLink]="['/news', value]">Goto News With Param via html-link</button>
 </p>
