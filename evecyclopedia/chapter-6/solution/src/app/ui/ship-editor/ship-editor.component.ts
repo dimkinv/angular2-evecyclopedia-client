@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class ShipEditorComponent implements OnInit {
   isEdit:any;
-  ship:Ship;
+  ship:Ship = new Ship();
 
   groups$:Observable<{name:string}[]>;
   races$:Observable<{name:string}[]>;
@@ -21,32 +21,17 @@ export class ShipEditorComponent implements OnInit {
   ngOnInit() {
     this.groups$ = this.shipsService.getGroups();
     this.races$ = this.shipsService.getRaces('Battleship');//TODO: workaround - need to expose available races API
-    //TODO: 1st time fetch doesnt set group + race on mac
 
-    this.route.url.subscribe(url =>{
-      this.isEdit = url[0].path !== 'new-ship';
-      if(this.isEdit){
-        this.fetchShipDetails();
-      }else{
-        this.fetchEmptyShipModel();
-      }
-    });
-    
-
-  }
-
-  fetchShipDetails(){
     this.route.params
       .switchMap((params:Params) => {
-        return this.shipsService.getShip(params['groupName'], params['raceName'], params['shipName'])
+        this.isEdit = params['groupName'] !== '_new_';
+        return (this.isEdit) ? 
+                this.shipsService.getShip(params['groupName'], params['raceName'], params['shipName']):
+                Observable.of(new Ship());
       })
       .subscribe(shipDetails => {
         this.ship = shipDetails;
       });
-  }
-
-  fetchEmptyShipModel(){
-    this.ship = new Ship();
   }
 
   save(){

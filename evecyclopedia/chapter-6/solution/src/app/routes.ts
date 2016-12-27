@@ -6,10 +6,6 @@ import {AboutComponent} from './ui/about/about.component'
 
 export const routes:Routes = [
     {
-        path: '',
-        component: HomeComponent,
-    },
-    {
         path: 'about',
         component: AboutComponent,
     },    
@@ -18,8 +14,11 @@ export const routes:Routes = [
         component: ShipEditorComponent
     },
     {
-        path: 'new-ship',
-        component: ShipEditorComponent
+        path: '',
+        component: HomeComponent,
     },
-    {path: '**', redirectTo: ''}
+    {
+        path: '**',
+        redirectTo: ''
+    }
 ]

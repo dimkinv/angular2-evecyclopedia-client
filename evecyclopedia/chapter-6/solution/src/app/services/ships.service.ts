@@ -41,10 +41,13 @@ export class ShipsService{
 
     getShip(groupName, raceName, shipName):Observable<Ship>{
         //return mock.getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipName);
-        return this.http.get(`${this.baseUrl}/groups/${groupName}/races/${raceName}/ships/${shipName}`)
-                        .map(this.checkForErrors)
-                        .catch(err => Observable.throw(err))
+        return this.http.get(`${this.baseUrl}/groups/${groupName}/races/${raceName}/ships/${shipName}`) 
                         .map(this.getJson)
+    }
+
+    createShip(shipDetails){
+    }
+    updateShip(shipDetails){
     }
 
 
@@ -52,7 +55,7 @@ export class ShipsService{
         return res.json();
     }
     private checkForErrors(res: Response):Response{
-        if(res.status>=200 && res.status<300){
+        if(res.status>=200 && res.status<400){
             return res;
         }else{
             let err = new Error(res.statusText);
