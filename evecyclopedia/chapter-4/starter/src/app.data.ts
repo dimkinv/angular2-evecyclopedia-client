@@ -59,7 +59,7 @@ export function getShipsByGroupAndRace(groupName, raceName, full = false) {
   return races[0].ships;
 }
 
-export function getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipName) {
+export function getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipName): Ship {
   let ships = getShipsByGroupAndRace(groupName, raceName, true);
   let filteredShips = ships.filter((ship) => {
     return ship.name === shipName;
@@ -69,7 +69,7 @@ export function getShipDetailsByGroupRaceAndShipNames(groupName, raceName, shipN
     throw new Error(`ship ${shipName} not found`);
   }
 
-  return filteredShips[0];
+  return <Ship>filteredShips[0];
 }
 
 function getRandom(array) {
