@@ -1,0 +1,6 @@
+<button (click)="toggleDisplay()">Zippy!</button>
+<p [hidden]="doNotShow">
+  {{text | zippy}}
+</p>
+
+<app-sub-zippy></app-sub-zippy>
