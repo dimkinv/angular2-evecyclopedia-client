@@ -59,9 +59,9 @@ describe('Zippy component shallow tests', ()=>{
     });
 
 
-    it('Should include the same amout of unrendered info-capsule components as shipData attributes ', ()=> {
+    it('Should include 2 unrendered info-capsule elements ', ()=> {
         const infoCapsules  = fixture.debugElement.queryAll(By.css('info-capsule'));
-        expect(infoCapsules.length).toEqual(shipData.attributes.length);
+        expect(infoCapsules.length).toEqual(2);
     });
     
 });
