@@ -1,6 +1,5 @@
 import {Ship} from '../../models/ship.model';
 import {Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'ship-details',
@@ -14,7 +13,7 @@ export class ShipDetailsComponent {
   @Output()
   edit: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router:Router) {}
+  constructor() {}
 
   get encodedShipName(){
     return encodeURI(this.ship.name)

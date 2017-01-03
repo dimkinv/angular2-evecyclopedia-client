@@ -8,6 +8,6 @@ export class Ship {
   volume: number;
   capacity: number;
   mass: number;
-  icon_path: string;
+  icon_path?: string;
   attributes: Attribute[]
 }
