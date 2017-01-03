@@ -1,0 +1,4 @@
+<div [ngClass]="{selected: isSelected}">{{title}}</div>
+<div class="content">
+    <ng-content  *ngIf="isSelected"></ng-content>
+</div>

@@ -1,0 +1,40 @@
+<div class="ship-card" [style.background-image]="'url(https://evecyclopedia.herokuapp.com/api/ships/' + encodedShipName + '/image)'" *ngIf="ship">
+  <button (click)="editShip()">EDIT</button>
+  <div class="content">
+    <div class="bottom">
+      <div class="title">
+        <h2>{{ship.name}}</h2>
+      </div>
+      <div class="description">
+        {{ship.description}}
+      </div>
+    </div>
+    <div class="physics">
+      <div class="info-capsule">
+        <span class="title">Volume</span>
+        <span class="text">{{ship.volume}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Capacity</span>
+        <span class="text">{{ship.capacity}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Mass</span>
+        <span class="text">{{ship.mass}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Race</span>
+        <span class="text">{{ship.race}}</span>
+      </div>
+      <div class="info-capsule">
+        <span class="title">Group</span>
+        <span class="text">{{ship.group}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="attributes">
+    <h2>Attributes</h2>
+    <info-capsule *ngFor="let attribute of ship.attributes" [attribute]="attribute"></info-capsule>
+  </div>
+
+</div>
