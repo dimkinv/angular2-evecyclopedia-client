@@ -1,11 +1,12 @@
 import {Ship} from '../../models/ship.model';
-import {Component, Input, OnChanges, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnChanges, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'ship-details',
   styleUrls: ['ship-details.component.less'],
-  templateUrl: 'ship-details.component.html'
+  templateUrl: 'ship-details.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShipDetailsComponent {
   @Input()
