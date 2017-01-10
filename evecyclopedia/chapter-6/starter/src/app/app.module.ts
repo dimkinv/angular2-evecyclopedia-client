@@ -18,7 +18,7 @@ import {ShipsService} from './services/ships.service';
     InfoCapsuleComponent,
     TreeViewComponent,
     TreeNodeComponent,
-    EllipsisPipe,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
