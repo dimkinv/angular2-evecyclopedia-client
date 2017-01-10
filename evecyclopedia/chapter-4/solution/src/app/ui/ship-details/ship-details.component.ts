@@ -1,28 +1,20 @@
-import {Component, Input, OnChanges} from '@angular/core';
-import {ShipSelector} from '../../models/ship-selector.model';
-import {Ship} from '../../models/ship.model';
-import {ShipsService} from '../../services/ships.service';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ShipSelector } from '../../models/ship-selector.model';
+import { Ship } from '../../models/ship.model';
 
 @Component({
   selector: 'ship-details',
   styleUrls: ['ship-details.component.less'],
-  templateUrl: 'ship-details.component.html'
+  templateUrl: 'ship-details.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShipDetailsComponent implements OnChanges {
+export class ShipDetailsComponent {
   @Input()
-  shipSelector: ShipSelector;
+  ship: Ship;
 
-  ship:Ship;
+  constructor() { }
 
-  constructor(private shipsService:ShipsService) {}
-
-  ngOnChanges(changeObj){
-    if(changeObj.shipSelector.currentValue){
-      this.ship = this.shipsService.getShip(this.shipSelector.groupName, this.shipSelector.raceName, this.shipSelector.shipName);
-    }
-  }
-
-  get encodedShipName(){
+  get encodedShipName() {
     return encodeURI(this.ship.name)
   }
 }

@@ -1,4 +1,4 @@
 <div class="container">
-  <tree-view (change)="shipSelector = $event"></tree-view>
-  <ship-details [shipSelector]="shipSelector"></ship-details>
+  <tree-view (change)="onShipSelected($event)"></tree-view>
+  <ship-details [ship]="ship"></ship-details>
 </div>
