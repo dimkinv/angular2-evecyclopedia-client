@@ -34170,8 +34170,7 @@ let httpMockData = [{
   }]
 }];
 
-import {Ship} from './app/models/ship.model'
-export function getRandomShip(): Ship {
+export function getRandomShip(): any {
   let name = getRandom(httpMockData);
   let race = getRandom(name.races);
   return getRandom(race.ships);
